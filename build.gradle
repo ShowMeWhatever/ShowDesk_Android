@@ -1,0 +1,34 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+ext {
+    versionSupport = "25.3.1"
+
+    versionRx2Android = "2.0.1"
+    versionRx2 = "2.1.0"
+    versionButterknife = "8.6.0"
+
+    versionRetrofit = "2.3.0"
+    versionOkHttp = "3.4.1"
+
+    versionGlide = "3.8.0"
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'me.tatarka:gradle-retrolambda:3.6.1'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
