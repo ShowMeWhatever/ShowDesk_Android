@@ -8,7 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/ShowDeskTheme">
+
+        <activity android:name="com.showdesk.java.presentation.profile.ProfileActivity" />
 
         <activity android:name="com.showdesk.java.presentation.home.MainActivity">
             <intent-filter>
