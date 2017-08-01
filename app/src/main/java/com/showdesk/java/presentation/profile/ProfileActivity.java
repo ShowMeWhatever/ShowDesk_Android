@@ -2,11 +2,15 @@ package com.showdesk.java.presentation.profile;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
 import com.showdesk.java.presentation.common.BaseActivity;
 import com.showdesk.showdesk.R;
 import com.showdesk.util.common.ToastUtil;
+
+import butterknife.BindView;
 
 /**
  * Created by ladmusician.kim on 01/08/2017.
@@ -14,12 +18,11 @@ import com.showdesk.util.common.ToastUtil;
 
 public class ProfileActivity extends BaseActivity implements ProfileContract.View {
 
-    private ProfileContract.Presenter mPresenter;
+    @BindView(R.id.profile_recyclerview)
+    RecyclerView mRecyclerView;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    private ProfileContract.Presenter mPresenter;
+    private ProfileAdapter mAdapter;
 
     @Override
     protected int getLayoutId() {
@@ -29,6 +32,23 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     @Override
     protected Integer getMenuLayoutId() {
         return R.menu.profile;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mAdapter = new ProfileAdapter();
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mAdapter = null;
+        super.onDestroy();
     }
 
     @Override
