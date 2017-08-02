@@ -6,7 +6,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
+import com.showdesk.java.data.executor.ExecutionHelper;
+import com.showdesk.java.data.repository.UserDataRepository;
+import com.showdesk.java.domain.interaction.GetUserUsecase;
 import com.showdesk.java.presentation.common.BaseActivity;
+import com.showdesk.java.presentation.profile.viewmodel.ProfileViewModel;
 import com.showdesk.showdesk.R;
 import com.showdesk.util.common.ToastUtil;
 
@@ -38,22 +42,36 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAdapter = new ProfileAdapter();
-
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
-
         mAdapter.notifyDataSetChanged();
+
+        GetUserUsecase getUserUsecase = new GetUserUsecase(
+                ExecutionHelper.job(),
+                ExecutionHelper.ui(),
+                UserDataRepository.getInstance());
+
+        new ProfilePresenter(
+                this, getUserUsecase);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPresenter.subscribe();
+    }
+
+    @Override
+    protected void onPause() {
+        mPresenter.unsubscribe();
+        super.onPause();
     }
 
     @Override
     protected void onDestroy() {
         mAdapter = null;
         super.onDestroy();
-    }
-
-    @Override
-    public void setPresenter(ProfileContract.Presenter presenter) {
-        mPresenter = presenter;
     }
 
     @Override
@@ -64,5 +82,20 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
                 break;
         }
         return true;
+    }
+
+    @Override
+    public void setPresenter(ProfileContract.Presenter presenter) {
+        mPresenter = presenter;
+    }
+
+    @Override
+    public void setItem(ProfileViewModel model) {
+        mAdapter.setItem(model);
+    }
+
+    @Override
+    public void refresh() {
+        mAdapter.refresh();
     }
 }
