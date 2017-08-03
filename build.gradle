@@ -11,6 +11,7 @@ ext {
     versionOkHttp = "3.4.1"
 
     versionGlide = "3.8.0"
+    versionFresco = "1.4.0"
 }
 
 buildscript {

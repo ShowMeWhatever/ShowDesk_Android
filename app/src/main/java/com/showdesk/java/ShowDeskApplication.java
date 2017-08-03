@@ -3,6 +3,7 @@ package com.showdesk.java;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.showdesk.util.net.ShowDeskRetrofit;
 
 /**
@@ -20,6 +21,9 @@ public class ShowDeskApplication extends Application {
 
         // init retrofit config
         ShowDeskRetrofit.getInstance().init();
+
+        // init image
+        Fresco.initialize(this);
     }
 
     public static Context getContext() {
