@@ -2,9 +2,9 @@ package com.showdesk.java.data.repository;
 
 import com.showdesk.java.data.datasource.UserDatasource;
 import com.showdesk.java.data.datasource.UserRemoteDatasource;
-import com.showdesk.java.domain.mapper.UserMapper;
-import com.showdesk.java.domain.model.User;
 import com.showdesk.java.domain.repository.UserRepository;
+import com.showdesk.java.entity.UserEntity;
+import com.showdesk.java.entity.mapper.UserMapper;
 
 import io.reactivex.Single;
 
@@ -26,10 +26,10 @@ public class UserDataRepository implements UserRepository {
     }
 
     @Override
-    public Single<User> getUser() {
+    public Single<UserEntity> getUser() {
         UserDatasource datasource = new UserRemoteDatasource();
-
-        return datasource.getUser()
+        int testUserId = 1;
+        return datasource.getUser(testUserId)
                 .map(UserMapper::fromJson);
     }
 }

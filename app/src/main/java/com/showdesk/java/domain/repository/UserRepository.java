@@ -1,6 +1,6 @@
 package com.showdesk.java.domain.repository;
 
-import com.showdesk.java.domain.model.User;
+import com.showdesk.java.entity.UserEntity;
 
 import io.reactivex.Single;
 
@@ -10,5 +10,5 @@ import io.reactivex.Single;
 
 public interface UserRepository extends Repository {
 
-    Single<User> getUser();
+    Single<UserEntity> getUser();
 }
