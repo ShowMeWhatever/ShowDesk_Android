@@ -34,4 +34,12 @@ public class ProfileAdapter extends RecyclerView.Adapter<AbsProfileItemViewHolde
     public int getItemCount() {
         return mData.count();
     }
+
+    public void setItem(ProfileViewModel model) {
+        this.mData = model;
+    }
+
+    public void refresh() {
+        notifyDataSetChanged();
+    }
 }

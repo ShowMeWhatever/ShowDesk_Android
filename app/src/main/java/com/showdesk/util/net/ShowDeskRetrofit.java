@@ -12,8 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ShowDeskRetrofit {
 
-    public static final String BASE_URL = "https://";
-    private static Retrofit sRetrofit;
+    public static final String BASE_URL = "https://boiling-eyrie-21355.herokuapp.com/";
+    public static Retrofit sRetrofit;
 
     private ShowDeskRetrofit() {
     }
