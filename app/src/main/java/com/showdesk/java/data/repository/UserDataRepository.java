@@ -26,10 +26,10 @@ public class UserDataRepository implements UserRepository {
     }
 
     @Override
-    public Single<User> getUser() {
+    public Single<User> getUser(int userId) {
         UserDatasource datasource = new UserRemoteDatasource();
 
-        return datasource.getUser()
+        return datasource.getUser(userId)
                 .map(UserMapper::fromJson);
     }
 }

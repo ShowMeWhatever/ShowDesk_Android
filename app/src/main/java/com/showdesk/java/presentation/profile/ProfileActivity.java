@@ -25,6 +25,7 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
     @BindView(R.id.profile_recyclerview)
     RecyclerView mRecyclerView;
 
+    private int mUserId;
     private ProfileContract.Presenter mPresenter;
     private ProfileAdapter mAdapter;
 
@@ -38,15 +39,21 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         return R.menu.profile;
     }
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mAdapter = new ProfileAdapter();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
 
+        // TODO: 2017. 8. 23. get userId outside logic
+        mUserId = 1;
+
         GetUserUsecase getUserUsecase = new GetUserUsecase(
+                mUserId,
                 ExecutionHelper.job(),
                 ExecutionHelper.ui(),
                 UserDataRepository.getInstance());

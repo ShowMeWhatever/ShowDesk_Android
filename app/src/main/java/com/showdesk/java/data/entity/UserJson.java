@@ -13,6 +13,6 @@ import lombok.Setter;
 @Setter
 public class UserJson {
 
-    @SerializedName("name")
-    String name;
+    @SerializedName("username")
+    String username;
 }

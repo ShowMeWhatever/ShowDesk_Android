@@ -11,7 +11,7 @@ public class UserMapper {
 
     public static User fromJson(UserJson json) {
         User user = new User();
-        user.setName(json.getName());
+        user.setName(json.getUsername());
         return user;
     }
 }

@@ -10,5 +10,5 @@ import io.reactivex.Single;
 
 public interface UserRepository extends Repository {
 
-    Single<User> getUser();
+    Single<User> getUser(int userId);
 }

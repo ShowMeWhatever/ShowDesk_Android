@@ -13,18 +13,21 @@ import io.reactivex.Single;
 
 public class GetUserUsecase extends Usecase<User> {
 
+    int mUserId;
     UserRepository mUserRepository;
 
     public GetUserUsecase(
+            int userId,
             ExecutionThread executionThread,
             PostExecutionThread postExecutionThread,
             UserRepository mProfileRepository) {
         super(executionThread, postExecutionThread);
         this.mUserRepository = mProfileRepository;
+        this.mUserId = userId;
     }
 
     @Override
     protected Single<User> buildUseCaseSingle() {
-        return mUserRepository.getUser();
+        return mUserRepository.getUser(mUserId);
     }
 }
