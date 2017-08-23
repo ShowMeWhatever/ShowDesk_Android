@@ -2,8 +2,8 @@ package com.showdesk.java.domain.interaction;
 
 import com.showdesk.java.domain.executor.ExecutionThread;
 import com.showdesk.java.domain.executor.PostExecutionThread;
-import com.showdesk.java.domain.model.User;
 import com.showdesk.java.domain.repository.UserRepository;
+import com.showdesk.java.entity.User;
 
 import io.reactivex.Single;
 

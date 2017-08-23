@@ -3,8 +3,8 @@ package com.showdesk.java.data.repository;
 import com.showdesk.java.data.datasource.UserDatasource;
 import com.showdesk.java.data.datasource.UserRemoteDatasource;
 import com.showdesk.java.domain.mapper.UserMapper;
-import com.showdesk.java.domain.model.User;
 import com.showdesk.java.domain.repository.UserRepository;
+import com.showdesk.java.entity.User;
 
 import io.reactivex.Single;
 

@@ -15,4 +15,8 @@ public class UserJson {
 
     @SerializedName("username")
     String username;
+    @SerializedName("follower_count")
+    int followerCount;
+    @SerializedName("following_count")
+    int followingCount;
 }

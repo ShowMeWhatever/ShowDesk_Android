@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.showdesk.java.presentation.profile.viewholder.AbsProfileItemViewHolder;
+import com.showdesk.java.presentation.profile.viewholder.ProfileViewHolder;
 import com.showdesk.java.presentation.profile.viewmodel.ProfileViewModel;
 import com.showdesk.showdesk.R;
 

@@ -3,8 +3,8 @@ package com.showdesk.java.presentation.profile.viewmodel;
 import android.support.annotation.Nullable;
 
 import com.showdesk.java.entity.Entity;
-import com.showdesk.java.entity.FeedEntity;
-import com.showdesk.java.entity.UserEntity;
+import com.showdesk.java.entity.Feed;
+import com.showdesk.java.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,12 +20,15 @@ import lombok.Setter;
 @Setter
 public class ProfileViewModel {
 
-    private UserEntity mUser;
-    private List<FeedEntity> mFeedItemList = new ArrayList<>();
+    private User mUser;
+    private List<Feed> mFeedItemList = new ArrayList<>();
 
     public ProfileViewModel() {
-        mUser = new UserEntity();
-        mUser.setName("Test Username");
+        for(int i = 0; i < 10; i ++) {
+            Feed feed = new Feed();
+            feed.setTitle("test" + i +1);
+            feed.setContent("content" + i +1);
+        }
     }
 
     public int count() {
