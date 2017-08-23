@@ -2,7 +2,6 @@ package com.showdesk.java.presentation.profile;
 
 import com.showdesk.java.domain.interaction.GetUserUsecase;
 import com.showdesk.java.domain.repository.UserRepository;
-import com.showdesk.java.entity.UserEntity;
 import com.showdesk.java.presentation.profile.viewmodel.ProfileViewModel;
 
 /**
@@ -28,11 +27,11 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     public void subscribe() {
         mGetUserUsecase.execute(user -> {
             ProfileViewModel profileViewModel = new ProfileViewModel();
-            UserEntity mUser = new UserEntity();
-            mUser.setName(user.getName());
-            profileViewModel.setMUser(mUser);
+            profileViewModel.setMUser(user);
             mView.setItem(profileViewModel);
             mView.refresh();
+        }, err -> {
+
         });
     }
 

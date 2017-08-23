@@ -6,10 +6,11 @@ import lombok.Setter;
 /**
  * Created by ladmusician.kim on 01/08/2017.
  */
+@Getter
+@Setter
+public class User extends Entity {
 
-public class UserEntity extends Entity {
-
-    @Getter
-    @Setter
     private String name;
+    private int followerCount;
+    private int followingCount;
 }

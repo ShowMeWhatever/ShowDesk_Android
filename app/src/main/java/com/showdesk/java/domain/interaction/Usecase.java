@@ -24,7 +24,7 @@ public abstract class Usecase<T> {
 
     protected abstract Single<T> buildUseCaseSingle();
 
-    public void execute(Consumer<T> consumer) {
+    public void execute(Consumer<T> consumer, Consumer<Throwable> errorConsumer) {
         Single<T> single = buildUseCaseSingle();
 
         if (executionThread != null) {
@@ -34,7 +34,7 @@ public abstract class Usecase<T> {
             single = single.observeOn(postExecutionThread.getScheduler());
         }
 
-        disposable = single.subscribe(consumer);
+        disposable = single.subscribe(consumer, errorConsumer);
     }
 
     public void dispose() {
