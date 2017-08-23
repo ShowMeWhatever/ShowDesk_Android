@@ -3,4 +3,16 @@
     <color name="colorPrimary">#fafafa</color>
     <color name="colorPrimaryDark">#c7c7c7</color>
     <color name="colorAccent">#0077b5</color>
+
+
+    <color name="grecy_01">#FAFAFA</color>
+    <color name="grecy_02">#F5F5F5</color>
+    <color name="grecy_03">#EEEEEE</color>
+    <color name="grecy_04">#E0E0E0</color>
+    <color name="grecy_05">#BDBDBD</color>
+    <color name="grecy_06">#9E9E9E</color>
+    <color name="grecy_07">#757575</color>
+    <color name="grecy_08">#616161</color>
+    <color name="grecy_09">#424242</color>
+    <color name="grecy_10">#212121</color>
 </resources>
